@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 
 class ResultScream extends StatelessWidget {
 
-  const ResultScream({super.key});
+  const ResultScream({super.key,required this.chosenAnswered});
+
+  final List<String> chosenAnswered;
 
   @override
   Widget build(context) {

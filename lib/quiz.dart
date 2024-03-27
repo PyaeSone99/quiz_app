@@ -52,7 +52,7 @@ class _QuizState extends State<Quiz> {
       }
 
       if (activeScream == 'result-scream') {
-        screamWidget = const ResultScream();
+        screamWidget = ResultScream(chosenAnswered: selectedAnswer,);
       }
 
       return MaterialApp(
