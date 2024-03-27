@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 
 class HomePage extends StatelessWidget {
@@ -46,10 +47,10 @@ class HomePageTitle extends StatelessWidget {
   Widget build(context){
     return Container(
       margin: const EdgeInsets.only(bottom: 50),
-      child: const Text(
+      child: Text(
         'Learn Flutter The Fun Way!',
-        style: TextStyle(
-          color: Color.fromARGB(255, 237, 223, 252),
+        style: GoogleFonts.lato(
+          color: const Color.fromARGB(255, 237, 223, 252),
           fontSize: 24
         ),
       ),
