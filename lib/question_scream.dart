@@ -28,10 +28,9 @@ class _QuestionScreamState extends State<QuestionScream> {
             color: Colors.white
           ),),
            const SizedBox(height: 20,),
-           AnswerButton(onTab: (){}, answerText: currentQuestion.possibleAnswers[0]),
-           AnswerButton(onTab: (){}, answerText: currentQuestion.possibleAnswers[1]), 
-           AnswerButton(onTab: (){}, answerText: currentQuestion.possibleAnswers[2]),
-           AnswerButton(onTab: (){}, answerText: currentQuestion.possibleAnswers[3]),      
+          ...(currentQuestion.possibleAnswers.map((answer) {
+            return AnswerButton(onTab: (){}, answerText: answer);
+          }).toList()),
           ],
       ),
     );
