@@ -19,19 +19,27 @@ class _QuestionScreamState extends State<QuestionScream> {
   
   @override
   Widget build(context) {
-    return SizedBox(
-      width: double.infinity,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Text(currentQuestion.title,style: const TextStyle(
-            color: Colors.white
-          ),),
-           const SizedBox(height: 20,),
-          ...(currentQuestion.possibleAnswers.map((answer) {
-            return AnswerButton(onTab: (){}, answerText: answer);
-          }).toList()),
-          ],
+    return Container(
+      margin: const EdgeInsets.all(20),
+      child: SizedBox(
+        width: double.infinity,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Text(
+              currentQuestion.title,
+              style: const TextStyle(
+                color: Colors.white,
+              ),
+              textAlign: TextAlign.center,
+            ),
+             const SizedBox(height: 20,),
+            ...(currentQuestion.possibleAnswers.map((answer) {
+              return AnswerButton(onTab: (){}, answerText: answer);
+            }).toList()),
+            ],
+        ),
       ),
     );
   }
