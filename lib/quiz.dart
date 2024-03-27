@@ -37,7 +37,6 @@ class _QuizState extends State<Quiz> {
 
     if (selectedAnswer.length == questionData.length) {
       setState(() {
-        selectedAnswer = [];
         activeScream = 'result-scream';
       });
     }

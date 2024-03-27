@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:quiz_app/data/question_data.dart';
+import 'package:quiz_app/question_summery.dart';
 
 class ResultScream extends StatelessWidget {
 
@@ -12,8 +13,8 @@ class ResultScream extends StatelessWidget {
 
     for (var i = 0; i < chosenAnswered.length; i++) {
       summery.add({
-        'question_indes' : i,
-        'question' : questionData[i],
+        'question_index' : i,
+        'question' : questionData[i].title,
         'correct_answer' : questionData[i].possibleAnswers[0],
         'user_answer' : chosenAnswered[i]
       });
@@ -33,9 +34,7 @@ class ResultScream extends StatelessWidget {
             'You answered X out of Y questions correctly!'
           ),
           const SizedBox(height: 30,),
-          const Text(
-            'List of answers and questions...',
-          ),
+          QuestionSummery(getSummeryData()),
           const SizedBox(height: 30,),
           TextButton(onPressed: () {}, child: const Text('Restart Quiz!'))
         ],
