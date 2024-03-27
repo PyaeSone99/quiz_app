@@ -22,7 +22,7 @@ class Quiz extends StatefulWidget {
 
 class _QuizState extends State<Quiz> {
 
-  List<String> selectedAnswer = [];
+  final List<String> _selectedAnswer = [];
 
   var activeScream = 'start-scream';
 
@@ -33,9 +33,9 @@ class _QuizState extends State<Quiz> {
   }
 
   void chooseAnswer(answer){
-    selectedAnswer.add(answer); 
+    _selectedAnswer.add(answer); 
 
-    if (selectedAnswer.length == questionData.length) {
+    if (_selectedAnswer.length == questionData.length) {
       setState(() {
         activeScream = 'result-scream';
       });
@@ -51,7 +51,7 @@ class _QuizState extends State<Quiz> {
       }
 
       if (activeScream == 'result-scream') {
-        screamWidget = ResultScream(chosenAnswered: selectedAnswer,);
+        screamWidget = ResultScream(chosenAnswered: _selectedAnswer,);
       }
 
       return MaterialApp(

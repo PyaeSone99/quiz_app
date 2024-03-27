@@ -8,7 +8,7 @@ class ResultScream extends StatelessWidget {
 
   final List<String> chosenAnswered;
 
-  List<Map<String,Object>> getSummeryData (){
+  List<Map<String,Object>> get summaryData {
     List<Map<String,Object>> summery = [];
 
     for (var i = 0; i < chosenAnswered.length; i++) {
@@ -26,13 +26,9 @@ class ResultScream extends StatelessWidget {
   @override
   Widget build(context) {
 
-    final summaryData = getSummeryData();
     final numTotalQuestions = questionData.length;
     final numTotalCorrectAnswer = summaryData.where(
-      (data) {
-        return data['user_answer'] == data['correct_answer'];
-      }
-    ).length;
+      (data) => data['user_answer'] == data['correct_answer']).length;
 
     return SizedBox(
       width: double.infinity,
@@ -45,7 +41,7 @@ class ResultScream extends StatelessWidget {
             const SizedBox(
               height: 30,
             ),
-            QuestionSummery(getSummeryData()),
+            QuestionSummery(summaryData),
             const SizedBox(
               height: 30,
             ),
