@@ -69,11 +69,11 @@ class HomeButton extends StatelessWidget {
       child: OutlinedButton.icon(
           style: OutlinedButton.styleFrom(
             shape: RoundedRectangleBorder(  
-                    borderRadius: BorderRadius.circular(12)
+                    borderRadius: BorderRadius.circular(9)
                   ),  
           ),
           onPressed: startQuiz,
-          icon: const Icon(Icons.arrow_right_alt),
+          icon: const Icon(Icons.arrow_right_alt,color: Colors.white,),
           label: const Text(
             'Start Quiz',
             style: TextStyle(color: Colors.white, fontSize: 22),

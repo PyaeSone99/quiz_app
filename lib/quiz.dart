@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quiz_app/data/question_data.dart';
 import 'package:quiz_app/home_page.dart';
 import 'package:quiz_app/question_scream.dart';
 
@@ -20,7 +21,7 @@ class Quiz extends StatefulWidget {
 
 class _QuizState extends State<Quiz> {
 
-  final List<String> selectedAnswer = [];
+  List<String> selectedAnswer = [];
 
   var activeScream = 'start-scream';
 
@@ -31,7 +32,14 @@ class _QuizState extends State<Quiz> {
   }
 
   void chooseAnswer(answer){
-    selectedAnswer.add(answer);
+    selectedAnswer.add(answer); 
+
+    if (selectedAnswer.length == questionData.length) {
+      setState(() {
+        selectedAnswer = [];
+        activeScream = 'start-scream';
+      });
+    }
   }
 
   @override
