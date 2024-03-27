@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:quiz_app/home_page.dart';
+import 'package:quiz_app/question_scream.dart';
 
 class Quiz extends StatefulWidget {
   
@@ -14,11 +15,19 @@ class Quiz extends StatefulWidget {
 
 class _QuizState extends State<Quiz> {
 
+  Widget activeScream = const HomePage();
+
+  void switchScream (){
+    setState(() {
+      activeScream = const QuestionScream();
+    });
+  }
+
   @override
   Widget build( context) {
-      return const MaterialApp(
+      return MaterialApp(
       home: Scaffold(
-        body: HomePage(),
+        body: activeScream,
       ),
     );
   }
