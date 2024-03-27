@@ -35,7 +35,7 @@ class _QuestionScreamState extends State<QuestionScream> {
               textAlign: TextAlign.center,
             ),
              const SizedBox(height: 20,),
-            ...(currentQuestion.possibleAnswers.map((answer) {
+            ...(currentQuestion.getShuffledAnswers().map((answer) {
               return AnswerButton(onTab: (){}, answerText: answer);
             }).toList()),
             ],
