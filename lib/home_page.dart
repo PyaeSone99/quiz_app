@@ -6,7 +6,9 @@ const endAlign = Alignment.bottomRight;
 
 class HomePage extends StatelessWidget {
 
-  const HomePage({super.key});
+  const HomePage(this.startQuiz,{super.key});
+
+  final void Function() startQuiz;
   
   @override
   Widget build(context){
@@ -18,13 +20,13 @@ class HomePage extends StatelessWidget {
             end: endAlign
           )
         ),
-        child: const Center(
+        child:  Center(
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              HomeLogo(),
-              HomePageTitle(),
-              HomeButton()
+              const HomeLogo(),
+              const HomePageTitle(),
+              HomeButton(startQuiz)
             ],
           ),
         ),
@@ -67,13 +69,15 @@ class HomePageTitle extends StatelessWidget {
 }
 
 class HomeButton extends StatelessWidget {
-  const HomeButton({super.key});
+  const HomeButton(this.startQuiz,{super.key});
+
+  final void Function() startQuiz;
 
   @override 
   Widget build(context){
     return Container(
       margin: const EdgeInsets.only(bottom: 50),
-      child: OutlinedButton.icon(onPressed: (){}, icon: const Icon(Icons.arrow_right_alt), label: const Text(
+      child: OutlinedButton.icon(onPressed: startQuiz, icon: const Icon(Icons.arrow_right_alt), label: const Text(
         'Start Quiz',
         style: TextStyle(
           color: Colors.white,

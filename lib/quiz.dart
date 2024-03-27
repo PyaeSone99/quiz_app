@@ -15,7 +15,13 @@ class Quiz extends StatefulWidget {
 
 class _QuizState extends State<Quiz> {
 
-  Widget activeScream = const HomePage();
+  Widget? activeScream;
+
+  @override
+  void initState() {
+    activeScream = HomePage(switchScream);
+    super.initState();
+  }
 
   void switchScream (){
     setState(() {
