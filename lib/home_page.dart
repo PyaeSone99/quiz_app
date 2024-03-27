@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 
-List<Color> homePageColor = [const Color.fromARGB(255, 78, 13, 151),const Color.fromARGB(255, 107, 15, 168)];
-const startAlign = Alignment.topLeft;
-const endAlign = Alignment.bottomRight;
 
 class HomePage extends StatelessWidget {
 
@@ -12,15 +9,7 @@ class HomePage extends StatelessWidget {
   
   @override
   Widget build(context){
-    return Container(
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            colors: homePageColor,
-            begin: startAlign,
-            end: endAlign
-          )
-        ),
-        child:  Center(
+    return Center(
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
@@ -29,10 +18,10 @@ class HomePage extends StatelessWidget {
               HomeButton(startQuiz)
             ],
           ),
-        ),
-    );
+        );
   }
 }
+
 
 class HomeLogo extends StatelessWidget {
   const HomeLogo({super.key});

@@ -15,8 +15,19 @@ class _QuestionScreamState extends State<QuestionScream> {
   
   @override
   Widget build(context) {
-    return const Text(
-      'This is question Scream'
+    return SizedBox(
+      width: double.infinity,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          const Text('This is title'),
+          const SizedBox(height: 20,),
+          ElevatedButton(onPressed: (){}, child: const Text('Answer 1')),
+          ElevatedButton(onPressed: (){}, child: const Text('Answer 1')),
+          ElevatedButton(onPressed: (){}, child: const Text('Answer 1')),
+          ElevatedButton(onPressed: (){}, child: const Text('Answer 1')),
+        ],
+      ),
     );
   }
 }

@@ -2,6 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:quiz_app/home_page.dart';
 import 'package:quiz_app/question_scream.dart';
 
+
+List<Color> homePageColor = [const Color.fromARGB(255, 78, 13, 151),const Color.fromARGB(255, 107, 15, 168)];
+const startAlign = Alignment.topLeft;
+const endAlign = Alignment.bottomRight;
+
 class Quiz extends StatefulWidget {
   
   const Quiz({super.key});
@@ -33,8 +38,18 @@ class _QuizState extends State<Quiz> {
 
       return MaterialApp(
       home: Scaffold(
-        // body: activeScream == 'start-scream' ? HomePage(switchScream) : const QuestionScream(),
-        body: screamWidget,
+        body: Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: homePageColor,
+              begin: startAlign,
+              end: endAlign
+            )
+          ),
+          // child: activeScream == 'start-scream' ? HomePage(switchScream) : const QuestionScream(),
+          child: screamWidget,
+        ),
+
       ),
     );
   }
