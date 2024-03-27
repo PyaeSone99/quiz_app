@@ -15,10 +15,21 @@ class QuestionScream extends StatefulWidget {
 
 class _QuestionScreamState extends State<QuestionScream> {
 
-  var currentQuestion = questionData[0];
+  var currentQuestionIndex = 0;
+
+  void answerQuestion() {
+    setState(() {
+      currentQuestionIndex++;
+    });
+  }
+
+  
   
   @override
   Widget build(context) {
+
+    var currentQuestion = questionData[currentQuestionIndex];
+
     return Container(
       margin: const EdgeInsets.all(20),
       child: SizedBox(
@@ -36,7 +47,7 @@ class _QuestionScreamState extends State<QuestionScream> {
             ),
              const SizedBox(height: 20,),
             ...(currentQuestion.getShuffledAnswers().map((answer) {
-              return AnswerButton(onTab: (){}, answerText: answer);
+              return AnswerButton(onTab: answerQuestion, answerText: answer);
             }).toList()),
             ],
         ),
