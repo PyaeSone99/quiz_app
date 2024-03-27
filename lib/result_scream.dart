@@ -25,19 +25,33 @@ class ResultScream extends StatelessWidget {
 
   @override
   Widget build(context) {
+
+    final summaryData = getSummeryData();
+    final numTotalQuestions = questionData.length;
+    final numTotalCorrectAnswer = summaryData.where(
+      (data) {
+        return data['user_answer'] == data['correct_answer'];
+      }
+    ).length;
+
     return SizedBox(
       width: double.infinity,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          const Text(
-            'You answered X out of Y questions correctly!'
-          ),
-          const SizedBox(height: 30,),
-          QuestionSummery(getSummeryData()),
-          const SizedBox(height: 30,),
-          TextButton(onPressed: () {}, child: const Text('Restart Quiz!'))
-        ],
+      child: Container(
+        margin: const EdgeInsets.all(40),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text('You answered $numTotalQuestions out of $numTotalCorrectAnswer questions correctly!'),
+            const SizedBox(
+              height: 30,
+            ),
+            QuestionSummery(getSummeryData()),
+            const SizedBox(
+              height: 30,
+            ),
+            TextButton(onPressed: () {}, child: const Text('Restart Quiz!'))
+          ],
+        ),
       ),
     );
   }
