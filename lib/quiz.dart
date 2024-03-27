@@ -15,17 +15,11 @@ class Quiz extends StatefulWidget {
 
 class _QuizState extends State<Quiz> {
 
-  Widget? activeScream;
-
-  @override
-  void initState() {
-    activeScream = HomePage(switchScream);
-    super.initState();
-  }
+  var activeScream = 'start-scream';
 
   void switchScream (){
     setState(() {
-      activeScream = const QuestionScream();
+      activeScream = 'question-scream';
     });
   }
 
@@ -33,7 +27,7 @@ class _QuizState extends State<Quiz> {
   Widget build( context) {
       return MaterialApp(
       home: Scaffold(
-        body: activeScream,
+        body: activeScream == 'start-scream' ? HomePage(switchScream) : const QuestionScream(),
       ),
     );
   }
