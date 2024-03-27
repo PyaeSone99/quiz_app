@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:quiz_app/data/question_data.dart';
 import 'package:quiz_app/home_page.dart';
 import 'package:quiz_app/question_scream.dart';
+import 'package:quiz_app/result_scream.dart';
 
 
 List<Color> homePageColor = [const Color.fromARGB(255, 78, 13, 151),const Color.fromARGB(255, 107, 15, 168)];
@@ -37,7 +38,7 @@ class _QuizState extends State<Quiz> {
     if (selectedAnswer.length == questionData.length) {
       setState(() {
         selectedAnswer = [];
-        activeScream = 'start-scream';
+        activeScream = 'result-scream';
       });
     }
   }
@@ -48,6 +49,10 @@ class _QuizState extends State<Quiz> {
 
       if (activeScream == 'question-scream') {
         screamWidget = QuestionScream(onSelectedAnswer:chooseAnswer);
+      }
+
+      if (activeScream == 'result-scream') {
+        screamWidget = const ResultScream();
       }
 
       return MaterialApp(
