@@ -20,7 +20,7 @@ const questionData = [
     ]
   ),
   QuestionModel(
-    'Where is pyae sone live?',
+    'Where is pyae sone aung live?',
     [
       'In Ma Ma Heart',
       'Htauk Kyant',
@@ -29,12 +29,30 @@ const questionData = [
     ]
   ),
   QuestionModel(
-    'Who is pyae sone\s girlfriend?',
+    'Who is pyae sone aung\s girlfriend?',
     [
       'Chae Soo-bin',
       'Han Hyo-Jo',
       'Go Youn-jung',
       'Park Min Young'
+    ]
+  ),
+    QuestionModel(
+    'What is pyae sone aung\s favourite language?',
+    [
+      'Flutter',
+      'React',
+      'Java',
+      'Spring'
+    ]
+  ),
+    QuestionModel(
+    'Whak type of girl pyae sone aung like?',
+    [
+      'Sexy',
+      'Cute',
+      'Beautiful',
+      'Attractive'
     ]
   ),
 ];
