@@ -25,9 +25,16 @@ class _QuizState extends State<Quiz> {
 
   @override
   Widget build( context) {
+      Widget screamWidget = HomePage(switchScream);
+
+      if (activeScream == 'question-scream') {
+        screamWidget = const QuestionScream();
+      }
+
       return MaterialApp(
       home: Scaffold(
-        body: activeScream == 'start-scream' ? HomePage(switchScream) : const QuestionScream(),
+        // body: activeScream == 'start-scream' ? HomePage(switchScream) : const QuestionScream(),
+        body: screamWidget,
       ),
     );
   }
