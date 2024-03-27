@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-List<Color> homePageColor = [Colors.purple,Colors.pink];
+List<Color> homePageColor = [const Color.fromARGB(255, 78, 13, 151),const Color.fromARGB(255, 107, 15, 168)];
 const startAlign = Alignment.topLeft;
 const endAlign = Alignment.bottomRight;
 
@@ -39,7 +39,12 @@ class HomeLogo extends StatelessWidget {
   Widget build(context){
     return Container(
       margin: const EdgeInsets.only(bottom: 100),
-      child: Image.asset('assets/images/quiz-logo.png',width: 300,),
+      // we donot use like that because of performance
+      // child: Opacity( 
+      //   opacity: 0.1,
+      //   child: Image.asset('assets/images/quiz-logo.png',width: 300,)
+      // ),
+      child: Image.asset('assets/images/quiz-logo.png',width: 300,color: const Color.fromARGB(150, 255, 255, 255),),
     );
   }
 }
@@ -53,8 +58,8 @@ class HomePageTitle extends StatelessWidget {
       child: const Text(
         'Learn Flutter The Fun Way!',
         style: TextStyle(
-          color: Colors.white,
-          fontSize: 28
+          color: Color.fromARGB(255, 237, 223, 252),
+          fontSize: 24
         ),
       ),
     );
