@@ -5,7 +5,9 @@ import 'package:quiz_app/data/question_data.dart';
 
 class QuestionScream extends StatefulWidget {
 
-  const QuestionScream({super.key});
+  const QuestionScream({super.key,required this.onSelectedAnswer});
+
+  final void Function(String selectedAnswer) onSelectedAnswer;
 
   @override
   State<QuestionScream> createState () {
@@ -18,7 +20,8 @@ class _QuestionScreamState extends State<QuestionScream> {
 
   var currentQuestionIndex = 0;
 
-  void answerQuestion() {
+  void answerQuestion(String selectedAnswer) {
+    widget.onSelectedAnswer(selectedAnswer);
     setState(() {
       currentQuestionIndex++;
     });
@@ -50,7 +53,12 @@ class _QuestionScreamState extends State<QuestionScream> {
             ),
              const SizedBox(height: 20,),
             ...(currentQuestion.getShuffledAnswers().map((answer) {
-              return AnswerButton(onTab: answerQuestion, answerText: answer);
+              return AnswerButton(
+                onTab: (){
+                  answerQuestion(answer);
+                }, 
+                answerText: answer
+              );
             }).toList()),
             ],
         ),

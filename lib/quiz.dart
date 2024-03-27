@@ -20,6 +20,8 @@ class Quiz extends StatefulWidget {
 
 class _QuizState extends State<Quiz> {
 
+  final List<String> selectedAnswer = [];
+
   var activeScream = 'start-scream';
 
   void switchScream (){
@@ -28,12 +30,16 @@ class _QuizState extends State<Quiz> {
     });
   }
 
+  void chooseAnswer(answer){
+    selectedAnswer.add(answer);
+  }
+
   @override
   Widget build( context) {
       Widget screamWidget = HomePage(switchScream);
 
       if (activeScream == 'question-scream') {
-        screamWidget = const QuestionScream();
+        screamWidget = QuestionScream(onSelectedAnswer:chooseAnswer);
       }
 
       return MaterialApp(
