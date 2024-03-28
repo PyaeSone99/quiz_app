@@ -22,13 +22,13 @@ class Quiz extends StatefulWidget {
 
 class _QuizState extends State<Quiz> {
 
-  final List<String> _selectedAnswer = [];
+   List<String> _selectedAnswer = [];
 
-  var activeScream = 'start-scream';
+  var _activeScream = 'start-scream';
 
   void switchScream (){
     setState(() {
-      activeScream = 'question-scream';
+      _activeScream = 'question-scream';
     });
   }
 
@@ -37,21 +37,29 @@ class _QuizState extends State<Quiz> {
 
     if (_selectedAnswer.length == questionData.length) {
       setState(() {
-        activeScream = 'result-scream';
+        _activeScream = 'result-scream';
       });
     }
   }
+
+    void restartQuiz() {
+    setState(() {
+      _selectedAnswer = [];
+      _activeScream = 'questions-screen';
+    });
+  }
+
 
   @override
   Widget build( context) {
       Widget screamWidget = HomePage(switchScream);
 
-      if (activeScream == 'question-scream') {
+      if (_activeScream == 'question-scream') {
         screamWidget = QuestionScream(onSelectedAnswer:chooseAnswer);
       }
 
-      if (activeScream == 'result-scream') {
-        screamWidget = ResultScream(chosenAnswered: _selectedAnswer,);
+      if (_activeScream == 'result-scream') {
+        screamWidget = ResultScream(chosenAnswered: _selectedAnswer,onRestart: restartQuiz,);
       }
 
       return MaterialApp(
